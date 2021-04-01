@@ -1,5 +1,12 @@
 @extends('layouts.base')
-
+@section('title')
+Home
+@endsection
 @section('content')
-<h1>Hello. This is main page</h1>
+  <h1>Test blog</h1>
+  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, urna nec maximus commodo, velit nunc porttitor leo, ut tempus justo dolor sit amet massa. Phasellus sed convallis ligula, id pharetra tellus. In sagittis rhoncus faucibus. In nisi dolor, blandit id suscipit ac, volutpat eu lorem. Quisque lacinia placerat sagittis. Donec sed convallis quam. Donec odio turpis, finibus in neque id, luctus elementum elit. Ut quam elit, commodo nec sem luctus, ullamcorper ultrices libero. Phasellus accumsan laoreet elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla odio erat, tempor vel laoreet ut, efficitur quis dolor. Integer vitae placerat justo. Mauris massa dolor, placerat nec nisi nec, condimentum mattis lacus. Maecenas ullamcorper lacus vitae nunc luctus gravida. </p>
+  <p> Quisque ut massa rutrum, lacinia mi nec, interdum sem. Nam eu lacus odio. Nunc feugiat sapien lorem, a molestie lectus eleifend id. Nam a metus facilisis, pellentesque tellus sed, blandit dui. Sed elit tellus, congue a justo sodales, elementum accumsan lectus. Cras varius massa aliquet, lobortis sem et, sodales lectus. Phasellus eleifend a eros non hendrerit. Donec ut feugiat urna. Phasellus posuere lacinia mi sed mattis. Aliquam facilisis felis sit amet velit viverra bibendum. </p>
+  <p> Maecenas in placerat tellus, et scelerisque sem. Donec sapien nulla, lobortis rutrum mollis vel, rhoncus id nunc. Vestibulum accumsan ultricies mollis. Nam eget faucibus ante. Cras fermentum aliquam porttitor. Fusce fringilla, lacus at mattis rhoncus, dui dolor laoreet metus, ut tincidunt nulla urna in leo. Etiam interdum condimentum urna, sed ultricies lorem molestie at. </p>
+  <p> Donec sodales nulla quis ipsum gravida, ac tempor nisi varius. Nulla sed lorem ac enim rhoncus accumsan tempus at leo. Pellentesque est libero, tempor semper gravida ac, aliquet auctor purus. In sed lectus quis nisi scelerisque dapibus. Nullam semper pretium eros vel lobortis. Suspendisse blandit odio vitae dui pulvinar, nec tincidunt orci volutpat. Fusce blandit quam sit amet orci iaculis, eu maximus enim suscipit. Nulla massa lorem, condimentum vel commodo id, volutpat at ex. Nam quis eros at metus semper vehicula. Maecenas euismod augue nec orci pretium eleifend. Aenean facilisis nunc ut mauris feugiat euismod. Duis malesuada enim non ante efficitur, at gravida purus convallis. In eget consequat mauris. Cras interdum ligula in odio dignissim egestas. Duis placerat, augue vitae lobortis interdum, augue turpis fringilla leo, et ultricies metus felis a turpis. </p>
+
 @endsection
