@@ -18,16 +18,23 @@ Route::get('/', function () {
     return view('home.home');
 })->name('home');
 
-Route::get('/blog', [PostController::class,'getAllPosts'])->name('blog');
+Route::get('/blog/{username}', [PostController::class,'getAllPosts'])
+->name('blog');
 
-Route::get('/blog/{id}', [PostController::class,'getPostById'])->name('getPost');
+Route::get('/blog/post/new-post', [PostController::class,'createPost'])
+->middleware('auth')->name('createPost');
 
-Route::get('/blog/{id}/delete', [PostController::class,'deletePost'])->middleware('can.edit')->name('deletePost');
+Route::post('/blog/post/new-post', [PostController::class,'createPostSubmit'])
+->middleware('auth')->name('createPostSubmit');
 
-Route::get('/blog/{id}/update', [PostController::class,'updatePost'])->middleware('can.edit')->name('updatePost');
+Route::get('/blog/{username}/{id}', [PostController::class,'getPostById'])
+->middleware('owner.post')->name('getPost');
 
-Route::post('/blog/{id}/update', [PostController::class,'updatePostSubmit'])->middleware('can.edit')->name('updatePostSubmit');
+Route::get('/blog/post/{id}/delete', [PostController::class,'deletePost'])
+->middleware('can.edit')->name('deletePost');
 
-Route::get('/blog/create/new-post', [PostController::class,'createPost'])->middleware('auth')->name('createPost');
+Route::get('/blog/post/{id}/update', [PostController::class,'updatePost'])
+->middleware('can.edit')->name('updatePost');
 
-Route::post('/blog/create/new-post', [PostController::class,'createPostSubmit'])->middleware('auth')->name('createPostSubmit');
+Route::post('/blog/post/{id}/update', [PostController::class,'updatePostSubmit'])
+->middleware('can.edit')->name('updatePostSubmit');

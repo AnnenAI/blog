@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container mt-4">
-    <form action="{{ route('updatePostSubmit', $post->id) }}" method="post">
+    <form action="{{ route('updatePostSubmit',['id'=> $post->id]) }}" method="post">
       @csrf
       <div class="form-group row">
         <label class="col-sm-2 col-form-label" name="title">Title</label>

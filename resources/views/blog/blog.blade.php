@@ -16,10 +16,14 @@ Blog
         </div>
         <div class="col">
           <div class="card-body">
-            <a href="{{route('getPost',$post->id)}}"><h5 class="card-title">{{ $post->title }}</h5></a>
+            <a href="{{route('getPost',['username'=>$post->author->username,'id'=>$post->id])}}">
+              <h5 class="card-title">{{ $post->title }}</h5>
+            </a>
             <p><small>{{ $post->updated_at->format('Y.m.d') }}</small></p>
             <p class="card-text">{{ $post->description }}</p>
-            <a href="{{route('getPost',$post->id)}}" class="btn btn-primary">Detail</a>
+            <a href="{{route('getPost',['username'=>$post->author->username,'id'=>$post->id])}}" class="btn btn-primary">
+              Detail
+            </a>
           </div>
         </div>
       </div>

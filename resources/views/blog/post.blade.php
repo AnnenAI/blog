@@ -21,10 +21,14 @@
     @if(Auth::check() && Auth::user()->id==$post->author->id)
       <div class="row">
         <div class="col-1">
-          <a href="{{ route('updatePost',$post->id) }}"><button class="btn btn-primary">Edit</button></a>
+          <a href="{{ route('updatePost',['id' => $post->id]) }}">
+            <button class="btn btn-primary">Edit</button>
+          </a>
         </div>
         <div class="col">
-          <a href="{{ route('deletePost',$post->id) }}"><button class="btn btn-danger">Delete</button></a>
+          <a href="{{ route('deletePost',['id' => $post->id]) }}">
+            <button class="btn btn-danger">Delete</button>
+          </a>
         </div>
       </div>
     @endif

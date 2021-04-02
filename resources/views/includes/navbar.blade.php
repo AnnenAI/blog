@@ -10,10 +10,10 @@
 	       <li class="nav-item">
 	         <a class="nav-link" href="{{route('home')}}">Home</a>
 	       </li>
-	       <li class="nav-item">
-	         <a class="nav-link" href="{{route('blog')}}">Blog</a>
-	       </li>
 				 @if (Auth::check())
+				 <li class="nav-item">
+						 <a class="nav-link" href="{{route('blog',Auth::user()->username)}}">Blog</a>
+				</li>
 				 <li class="nav-item">
 	         <a class="nav-link" href="{{route('createPost')}}">Create new post</a>
 	       </li>

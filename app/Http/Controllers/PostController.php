@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use Auth;
 
 class PostController extends Controller
 {
-    public function getAllPosts(){
+    public function getAllPosts($username){
 
-      $posts=Auth::check() ? Auth::user()->posts()->get() : null;
+      $posts = User::where('username','=',$username)->firstOrFail()->posts()->get();
       return view('blog.blog', ['posts'=>$posts]);
     }
 
-    public function getPostById($id){
+    public function getPostById($username,$id){
       $post=Post::find($id);
       return view('blog.post',['post'=>$post]);
     }
@@ -30,12 +31,12 @@ class PostController extends Controller
       $post->description=$request->description;
       $post->content=$request->content;
       $post->save();
-      return redirect()->route('blog')->with('success','Updated successfully');
+      return redirect()->route('blog', ['username'=>Auth::user()->username])->with('message','Post updated successfully');
     }
 
     public function deletePost($id){
       $post=Post::find($id)->delete();
-      return redirect()->route('blog')->with('success', 'Deleted successfully');
+      return redirect()->route('blog', ['username'=>Auth::user()->username])->with('message', 'Post deleted successfully');
     }
 
     public function createPost(){
@@ -49,6 +50,6 @@ class PostController extends Controller
       $post->content=$request->content;
       $post->user_id=Auth::user()->id;
       $post->save();
-      return redirect()->route('blog')->with('success','Post { '.$post->title.' } created!');
+      return redirect()->route('blog',['username'=>Auth::user()->username])->with('message','Post created!');
     }
 }
