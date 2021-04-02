@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Auth;
 
 class PostController extends Controller
 {
     public function getAllPosts(){
-      $posts=Post::all();
+
+      $posts=Auth::check() ? Auth::user()->posts()->get() : null;
       return view('blog.blog', ['posts'=>$posts]);
     }
 
@@ -45,7 +47,7 @@ class PostController extends Controller
       $post->title=$request->title;
       $post->description=$request->description;
       $post->content=$request->content;
-      $post->user_id=1;
+      $post->user_id=Auth::user()->id;
       $post->save();
       return redirect()->route('blog')->with('success','Post { '.$post->title.' } created!');
     }
