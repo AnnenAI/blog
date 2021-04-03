@@ -11,7 +11,10 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-
+    /**
+     * [posts description]
+     * @return [type] [description]
+     */
     public function posts(){
       return $this->hasMany(Post::class);
     }
