@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Tag;
 use Auth;
 
 class PostController extends Controller
@@ -40,7 +41,9 @@ class PostController extends Controller
     }
 
     public function createPost(){
-      return view('blog.create-post');
+      #$tags=Tag::all()->pluck('name');
+      $tags=Tag::all();
+      return view('blog.create-post',['tags'=>$tags]);
     }
 
     public function createPostSubmit(Request $request){
@@ -49,6 +52,8 @@ class PostController extends Controller
       $post->description=$request->description;
       $post->content=$request->content;
       $post->user_id=Auth::user()->id;
+      $post->save();
+      $post->tags()->attach($request->tag_id);
       $post->save();
       return redirect()->route('blog',['username'=>Auth::user()->username])->with('message','Post created!');
     }

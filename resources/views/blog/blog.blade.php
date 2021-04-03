@@ -22,7 +22,7 @@ Blog
             <p><small>{{ $post->updated_at->format('Y.m.d') }}</small></p>
             <p class="card-text">{{ $post->description }}</p>
             <a href="{{route('getPost',['username'=>$post->author->username,'id'=>$post->id])}}" class="btn btn-primary">
-              Detail
+              {{__('Detail')}}
             </a>
           </div>
         </div>

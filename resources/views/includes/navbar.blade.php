@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
 		<div class="col-8">
 			@if (Auth::check())
-				<p>{{ Auth::user()->name}}'s	Blog</p>
+				<h4>{{ Auth::user()->name}}'s	Blog</h4>
 			@endif
 		</div>
 		<div class="collapse navbar-collapse" id="navbarNav">

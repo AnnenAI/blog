@@ -13,8 +13,13 @@
         @endif
         <div class="card-body">
           <h5 class="card-title">{{ $post->title }}</h5>
+            <p>Tags:
+              @foreach($post->tags as $tag)
+                <small>#{{ $tag->name }}</small>
+              @endforeach
+            <p>
           <p><small>{{ $post->created_at->format('Y.m.d h:i A') }}</small></p>
-          <p><small>Created: </small> {{ $post->author->name}}</p>
+          <p><small>{{__('Created')}}: </small> {{ $post->author->name}}</p>
           <p class="card-text">{{ $post->content }}</p>
         </div>
     </div>
@@ -22,12 +27,12 @@
       <div class="row">
         <div class="col-1">
           <a href="{{ route('updatePost',['id' => $post->id]) }}">
-            <button class="btn btn-primary">Edit</button>
+            <button class="btn btn-primary">{{__('Edit')}}</button>
           </a>
         </div>
         <div class="col">
           <a href="{{ route('deletePost',['id' => $post->id]) }}">
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger">{{__('Delete')}}</button>
           </a>
         </div>
       </div>
