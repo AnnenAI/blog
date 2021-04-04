@@ -16,7 +16,7 @@ $(document).ready(function() {
         if( div=='allTags')
           $('#selectedTags').append(`<a href="#" name="${tag_name}" id="${tag_id}"> #${tag_name}</a>`);
         else
-          $('#allTags').append(`<a href="#" name="${tag.name}" id="${tag_id}"> #${tag_name}</a>`);
+          $('#allTags').append(`<a href="#" name="${tag_name}" id="${tag_id}"> #${tag_name}</a>`);
     });
 });
 

@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('title')
-Blog
+{{__('Blog page')}}
 @endsection
 @section('content')
   @if (!is_null($posts))

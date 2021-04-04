@@ -23,7 +23,9 @@ class PostController extends Controller
 
     public function updatePost($id){
       $post=Post::find($id);
-      return view('blog.update-post',['post'=>$post]);
+      $exceptedTags=$post->tags->pluck('id');
+      $tags=Tag::whereNotIn('id',$exceptedTags)->get();
+      return view('blog.update-post',['post'=>$post, 'tags'=>$tags]);
     }
 
     public function updatePostSubmit($id,Request $request){
@@ -31,6 +33,9 @@ class PostController extends Controller
       $post->title=$request->title;
       $post->description=$request->description;
       $post->content=$request->content;
+      $post->save();
+      $post->tags()->detach();
+      $post->tags()->attach($request->tag_id);
       $post->save();
       return redirect()->route('blog', ['username'=>Auth::user()->username])->with('message','Post updated successfully');
     }
@@ -41,7 +46,6 @@ class PostController extends Controller
     }
 
     public function createPost(){
-      #$tags=Tag::all()->pluck('name');
       $tags=Tag::all();
       return view('blog.create-post',['tags'=>$tags]);
     }

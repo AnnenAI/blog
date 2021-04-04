@@ -10923,9 +10923,9 @@ return jQuery;
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!*****************************!*\
-  !*** ./resources/js/tag.js ***!
-  \*****************************/
+/*!**********************************!*\
+  !*** ./resources/js/postTags.js ***!
+  \**********************************/
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(document).ready(function () {
   $("#searchTag").on("keyup", function () {
@@ -10941,7 +10941,7 @@ $(document).ready(function () {
     var tag_name = event.target.name;
     var div = $("[name=".concat(tag_name, "]")).parent().attr('id');
     event.target.remove();
-    if (div == 'allTags') $('#selectedTags').append("<a href=\"#\" name=\"".concat(tag_name, "\" id=\"").concat(tag_id, "\"> #").concat(tag_name, "</a>"));else $('#allTags').append("<a href=\"#\" name=\"".concat(tag.name, "\" id=\"").concat(tag_id, "\"> #").concat(tag_name, "</a>"));
+    if (div == 'allTags') $('#selectedTags').append("<a href=\"#\" name=\"".concat(tag_name, "\" id=\"").concat(tag_id, "\"> #").concat(tag_name, "</a>"));else $('#allTags').append("<a href=\"#\" name=\"".concat(tag_name, "\" id=\"").concat(tag_id, "\"> #").concat(tag_name, "</a>"));
   });
 });
 $(document).ready(function () {

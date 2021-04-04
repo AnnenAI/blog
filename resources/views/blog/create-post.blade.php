@@ -1,4 +1,7 @@
 @extends('layouts.base')
+@section('title')
+{{__('Creating new post')}}
+@endsection
 
 @section('content')
   <div class="container mt-4">
@@ -25,11 +28,11 @@
       <div class="form-group row">
         <label for="tags" class="col-sm-2 col-form-label">{{__('Tags')}}</label>
         <div class="col-sm-10">
-          @include('blog.includes.tags')
+          @include('blog.includes.create-post-tags')
         </div>
       </div>
       <button type="submit" class="btn btn-success">{{__('Create post')}}</button>
     </form>
   </div>
-  <script src="{{asset('js/tag.js')}}"></script>
+  <script src="{{asset('js/postTags.js')}}"></script>
 @endsection
