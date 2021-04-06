@@ -19,8 +19,9 @@ class CanEdit
     public function handle(Request $request, Closure $next)
     {
       if(Auth::check()){
+        $post_id=$request->id;
         $user=Auth::user()->id;
-        if($user == Post::find($request->id)->author->id)
+        if($user == Post::find($post_id)->author->id)
           return $next($request);
       }
       return redirect()->route('home');

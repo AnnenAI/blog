@@ -19,7 +19,6 @@
 	       </li>
 				 <li class="nav-item">
 					 <form name="logout-form" action="{{ route('logout') }}" method="POST">
-            	@csrf
     					<a class="nav-link" href="#" onclick="parentNode.submit();">Logout</a>
 						</form>
 	       </li>

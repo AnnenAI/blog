@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/blog/post/new-post', [PostController::class,'createPost'])
 Route::post('/blog/post/new-post', [PostController::class,'createPostSubmit'])
 ->middleware('auth')->name('createPostSubmit');
 
-Route::get('/blog/{username}/{id}', [PostController::class,'getPostById'])
+Route::get('/blog/{username}/post/{id}', [PostController::class,'getPostById'])
 ->middleware('owner.post')->name('getPost');
 
 Route::get('/blog/post/{id}/delete', [PostController::class,'deletePost'])
@@ -38,3 +39,5 @@ Route::get('/blog/post/{id}/update', [PostController::class,'updatePost'])
 
 Route::post('/blog/post/{id}/update', [PostController::class,'updatePostSubmit'])
 ->middleware('can.edit')->name('updatePostSubmit');
+
+Route::post('/addTag',[TagController::class,'addTag'])->middleware('auth')->name('addTag');

@@ -32,3 +32,38 @@ $(document).ready(function() {
       return true;
   });
 });
+
+
+$(document).ready(function(){
+
+    $('#inputedTagCheck').click(function(){
+        addTag($('#searchTag').val())
+    });
+
+    function addTag(tag){
+        let _token = $('meta[name="csrf-token"]').attr('content');
+        let url=$('a[name="url"]').attr('href');
+        $.ajax({
+            "url":url,
+            "dataType":"JSON",
+            "type":"POST",
+            "data":{
+                "_method":"POST",
+                "_token": _token,
+                "tag":tag
+            }
+          })
+            .done(function (response) {
+                  if (response.exists){
+                      $('#selectedTags').append(
+                        `<a href="#" name="${response.tag.name}" id="${response.tag.id}">
+                         #${response.tag.name}
+                         </a>`
+                      );
+                  }
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            });
+      }
+});

@@ -18,17 +18,22 @@ class PostController extends Controller
 
     public function getPostById($username,$id){
       $post=Post::find($id);
-      return view('blog.post',['post'=>$post]);
+      return view('blog.post.post',['post'=>$post]);
     }
 
     public function updatePost($id){
       $post=Post::find($id);
       $exceptedTags=$post->tags->pluck('id');
       $tags=Tag::whereNotIn('id',$exceptedTags)->get();
-      return view('blog.update-post',['post'=>$post, 'tags'=>$tags]);
+      return view('blog.post.update-post',['post'=>$post, 'tags'=>$tags]);
     }
 
     public function updatePostSubmit($id,Request $request){
+      $validated = $request->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'content' => 'required',
+      ]);
       $post=Post::find($id);
       $post->title=$request->title;
       $post->description=$request->description;
@@ -47,10 +52,15 @@ class PostController extends Controller
 
     public function createPost(){
       $tags=Tag::all();
-      return view('blog.create-post',['tags'=>$tags]);
+      return view('blog.post.create-post',['tags'=>$tags]);
     }
 
     public function createPostSubmit(Request $request){
+      $validated = $request->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'content' => 'required',
+      ]);
       $post= new Post();
       $post->title=$request->title;
       $post->description=$request->description;

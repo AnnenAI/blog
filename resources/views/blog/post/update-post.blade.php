@@ -3,7 +3,6 @@
 {{__('Update')}} {{$post->title}}
 @endsection
 
-
 @section('content')
   <div class="container mt-4">
     <form id="addPostForm" action="{{ route('updatePostSubmit',['id'=> $post->id]) }}" method="post">
