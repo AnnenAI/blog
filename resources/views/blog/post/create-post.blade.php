@@ -5,12 +5,18 @@
 
 @section('content')
   <div class="container mt-4">
-    <form id="addPostForm" action="{{ route('createPostSubmit') }}" method="post">
+    <form id="addPostForm" action="{{ route('createPostSubmit') }}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-group row">
         <label for="title" class="col-sm-2 col-form-label">{{__('Title')}}</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" name="title" placeholder="Title">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="image" class="col-sm-2">{{__('Image')}}</label>
+        <div class="col-sm-10">
+          <input type="file"  name="image">
         </div>
       </div>
       <div class="form-group row">

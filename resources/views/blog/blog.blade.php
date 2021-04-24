@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-5">
           @if ( !is_null($post->img_url) )
-            <img class="card-img-top" src="{{ $post->img_url }}" height="250" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('/storage/'.$post->img_url) }}" height="250"  alt="Card image cap">
           @else
             <img class="card-img-top" src="{{ asset('images/me.jpg') }}" height="250" alt="Card image cap">
           @endif

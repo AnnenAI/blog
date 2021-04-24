@@ -7,7 +7,7 @@
   <div class="card mt-3 p-3">
     <div class="row">
         @if ( !is_null($post->img_url) )
-          <img class="card-img-top p-3" src="{{ asset($post->img_url) }}" height="500"  alt="Card image cap">
+          <img class="card-img-top p-3" src="{{ asset('/storage/'.$post->img_url) }}" height="500"  alt="Card image cap">
         @else
           <img class="card-img-top p-3" src="{{ asset('images/me.jpg') }}" height="500" alt="Card image cap">
         @endif

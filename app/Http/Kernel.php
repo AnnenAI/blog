@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'can.edit' => \App\Http\Middleware\CanEdit::class,
         'owner.post' => \App\Http\Middleware\SelectedUserOwnerPost::class,
+        'forget.username'=>\App\Http\Middleware\ForgetUsername::class,
     ];
 }

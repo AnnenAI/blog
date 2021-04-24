@@ -12,7 +12,7 @@
 	       </li>
 				 @if (Auth::check())
 				 <li class="nav-item">
-						 <a class="nav-link" href="{{route('blog',Auth::user()->username)}}">Blog</a>
+						 <a class="nav-link" href="{{route('blog', Auth::user()->username)}}">Blog</a>
 				</li>
 				 <li class="nav-item">
 	         <a class="nav-link" href="{{route('createPost')}}">Create new post</a>

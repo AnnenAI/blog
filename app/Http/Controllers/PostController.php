@@ -36,6 +36,7 @@ class PostController extends Controller
       ]);
       $post=Post::find($id);
       $post->title=$request->title;
+      $post->img_url=$request->file('image')->store('uploads','public');
       $post->description=$request->description;
       $post->content=$request->content;
       $post->save();
@@ -65,6 +66,7 @@ class PostController extends Controller
       $post->title=$request->title;
       $post->description=$request->description;
       $post->content=$request->content;
+      $post->img_url=$request->file('image')->store('uploads','public');
       $post->user_id=Auth::user()->id;
       $post->save();
       $post->tags()->attach($request->tag_id);

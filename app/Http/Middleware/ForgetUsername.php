@@ -2,12 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Post;
-use Auth;
 use Closure;
 use Illuminate\Http\Request;
 
-class CanEdit
+class ForgetUsername
 {
     /**
      * Handle an incoming request.
@@ -18,12 +16,7 @@ class CanEdit
      */
     public function handle(Request $request, Closure $next)
     {
-      if(Auth::check()){
-        $post_id=$request->id;
-        $user=Auth::user()->id;
-        if($user == Post::find($post_id)->author->id)
-          return $next($request);
-      }
-      return redirect()->route('home');
+        $request->route()->forgetParameter('username');
+        return $next($request);
     }
 }
